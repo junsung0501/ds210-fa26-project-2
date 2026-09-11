@@ -1,0 +1,17 @@
+Paste your bashcrawl session below the line.
+
+Everything you typed and everything the dungeon printed back, from the moment you
+started to the moment you finished. Do not tidy it up. Wrong turns, typos and dead
+ends are all fine, and demonstrate your real effort and process.
+
+To get the text out of your terminal:
+
+  On Mac, press command-S and save the window's contents to a file.
+
+  On Git Bash, right-click inside the window and choose Select All, then
+  right-click again and choose Copy.
+
+Then paste it below the line. Do not close the terminal before you have saved.
+There is no way to get the session back afterwards.
+
+--------------------------------------------------------------------------------
