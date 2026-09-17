@@ -1,6 +1,6 @@
 # Project 1: Guessing Game
 
-**Author:** _your name here_
+**Author:** _johnlee_
 
 
 
