@@ -8,16 +8,16 @@
 #![allow(dead_code)]
 
 /// The magick teacher who taught you to read runes. Include the epithet.
-pub const TEACHER: &str = "";
+pub const TEACHER: &str = "Caitlyn the Green";
 
 /// The kind of animal waddling around the aviary. One word, singular.
-pub const AVIARY_ANIMAL: &str = "";
+pub const AVIARY_ANIMAL: &str = "penguin";
 
 /// The name the writing on the wall gives the nursery. Five words.
-pub const NURSERY_NAME: &str = "";
+pub const NURSERY_NAME: &str = "Nursery of the Still Dead";
 
 /// The object in the stronghold whose material form you have to free. One word.
-pub const STRONGHOLD_TREASURE: &str = "";
+pub const STRONGHOLD_TREASURE: &str = "goblet";
 
 /// The name of the thing waiting in the pit. One word.
-pub const FINAL_BOSS: &str = "";
+pub const FINAL_BOSS: &str = "nyarlathotep";
