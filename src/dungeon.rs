@@ -16,8 +16,10 @@ pub const AVIARY_ANIMAL: &str = "";
 /// The name the writing on the wall gives the nursery. Five words.
 pub const NURSERY_NAME: &str = "";
 
-/// The object in the stronghold whose material form you have to free. One word.
-pub const STRONGHOLD_TREASURE: &str = "";
+/// The object in the stronghold whose material form you free by adding orbs.
+/// One word. (Renamed from STRONGHOLD_TREASURE: the old wording did not say
+/// whether we meant the thing you free or the things you add.)
+pub const STRONGHOLD_OBJECT: &str = "";
 
 /// The name of the thing waiting in the pit. One word.
 pub const FINAL_BOSS: &str = "";

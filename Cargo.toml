@@ -7,6 +7,10 @@ edition = "2024"
 name = "game"
 path = "src/game.rs"
 
+[[bin]]
+name = "plot"
+path = "src/plot.rs"
+
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }
 plotters = "0.3.7"
