@@ -15,3 +15,1070 @@ Then paste it below the line. Do not close the terminal before you have saved.
 There is no way to get the session back afterwards.
 
 --------------------------------------------------------------------------------
+Last login: Wed Sep 16 16:05:33 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+SLNR-170234:~ johnleee$ git clone https://github.com/rust4ds/bashcrawl.git
+Cloning into 'bashcrawl'...
+remote: Enumerating objects: 1538, done.
+remote: Counting objects: 100% (1538/1538), done.
+remote: Compressing objects: 100% (845/845), done.
+remote: Total 1538 (delta 666), reused 1538 (delta 666), pack-reused 0 (from 0)
+Receiving objects: 100% (1538/1538), 244.68 KiB | 6.12 MiB/s, done.
+Resolving deltas: 100% (666/666), done.
+SLNR-170234:~ johnleee$ cd bashcrawl
+SLNR-170234:bashcrawl johnleee$ cd bashcrawl
+-bash: cd: bashcrawl: No such file or directory
+SLNR-170234:bashcrawl johnleee$ cat README.md
+# Welcome!
+
+> ## About this fork
+>
+> This is Boston University **CDS 210**'s fork of
+> [slackermedia/bashcrawl](https://gitlab.com/slackermedia/bashcrawl), used for
+> Project 1, Checkpoint 1. It is licensed GPLv3, the same as upstream.
+>
+> Changes from upstream, all made 2026-09-10:
+>
+> - `entrance/.rift/spire/mezzanine/.elevator/display`: reduced the number of floors in the elevator to speed up the trip.
+> - `entrance/.vault/stronghold/scroll` and `cellar/armoury/chamber/spell` had different spellings of the same word, now consistent.
+> - `entrance/.rift/spire/mezzanine/.elevator/.satellite/notebook`: adds a hint to strongly reduce the size of the space.
+
+
+
+This is a game to teach you the basics of using a POSIX (Linux, BSD, UNIX) terminal.
+
+## Download and unpack
+
+If you haven't downloaded Bashcrawl yet, go to https://gitlab.com/slackermedia/bashcrawl/-/releases and download the `Source code (zip)` file.
+
+Once the ZIP file has been downloaded to your computer, unzip it as usual.
+
+Now it's time to try it out on your computer.
+
+## Try it on your computer
+
+To start playing, open a terminal.
+
+Type the letters `cd` (just the letters and a space, not the quote marks) into the terminal...
+
+Then a space (press the spacebar)...
+
+Then drag and drop the `entrance` directory from this folder into your terminal.
+
+If your terminal asks you what you want to do with what you have just dragged into it, select "Paste location".
+If it doesn't ask, then expect it to paste the file path of the folder you just dragged into it.
+
+You now have something like this in your terminal window:
+
+```
+$ cd /home/your_username/Downloads/bashcrawl/entrance
+```
+
+(The exact path to the entrance varies, depending on where you saved the file, so it's OK if it looks a little different on your computer.)
+
+Press RETURN on your keyboard.
+
+Your first move is very important.
+Type this into your terminal:
+
+```
+cat scroll
+```
+
+You are now playing the game.
+May the gods save you.
+
+## Restarting the game
+
+If you want a fresh start, the easiest way to start over is to trash the `bashcrawl` folder and unzip a fresh copy.
+
+## Try it online with mybinder
+
+- Follow this link: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/slackermedia%2Fbashcrawl/HEAD).
+- Wait a few seconds to a minute until the launcher appears.
+- Click on the Terminal icon.
+
+Note: mybinder sessions are temporary; the game is reinitialized each
+time you disconnect.
+[Learn more about the mybinder service](https://mybinder.readthedocs.io/en/latest/).
+
+## NOTES FOR macOS X
+
+It appears that there is a problem with the standard `Archive Utility` that is called from `Finder` when a zip archive is double-clicked to extract to the current folder, if you're downloading the archive from GitLab rather than using git's `clone` facility to download the game.  You may find that all of the files in the destination folder are set to be executable.  This will cause great confusion as you play the game as intended, because every plain text file will be indistiguishable from executable scripts.  Here's how to avoid this problem:
+
+1.  Open your favorite terminal emulator app (for example, `Terminal.app` or `iTerm2`).
+1.  Navigate to the directory where you want to unpack the zip archive:
+    ```
+    cd /path/to/destination
+    ```
+    Replace `/path/to/destination` with the relative (does not start with slash `/`) or absolute (starts with slash `/`) path to your desired destination.
+1.  Type `unzip ` (that's `unzip` followed by a *space*)
+1.  From the `Finder`, drag the `bashcrawl-master.zip` to your terminal emulator window.  The absolute path to your downloaded archive is pasted into your terminal window, leaving you with:
+    ```
+    unzip /Users/your_username/Downloads/bashcrawl-master.zip
+    ```
+1.  Press RETURN on your keyboard to unpack the contents of the zip archive.
+1.  In the terminal window, change directory to `bashcrawl-master/entrance`:
+    ```
+    cd bashcrawl-master/entrance
+    ```
+
+Now you're in the game!  Have fun!
+SLNR-170234:bashcrawl johnleee$ cd entrance
+SLNR-170234:entrance johnleee$ cat scroll
+
+It is pitch black in these catacombs.
+You have a magickal spell that lists all items in a room.
+
+To see in the dark, type:     ls
+To move around, type:         cd <directory>
+
+Try looking around this room.
+Then move into one of the next rooms.
+
+EXAMPLE:
+
+$ ls
+$ cd cellar
+
+Remember to cast ``ls`` when you get into the next room!
+
+SLNR-170234:entrance johnleee$ ls
+cellar	scroll
+SLNR-170234:entrance johnleee$ cd cellar
+SLNR-170234:cellar johnleee$ cd cellar
+-bash: cd: cellar: No such file or directory
+SLNR-170234:cellar johnleee$ ls
+armoury		scroll		treasure
+SLNR-170234:cellar johnleee$ cat treasure
+#!/usr/bin/env bash
+#
+# If you are reading this, you have wandered out of bounds
+# and are reading the code that drives the game.
+#
+#                    Congratulations!
+#
+# Learning Linux is all about curiosity, so read this code and see
+# if you can figure out what it does.
+#
+# When you're ready to continue playing the game, though, stick to
+# the scrolls. If you're stuck, go to Gitlab and create an issue.
+# We're happy to provide hints.
+#
+
+if ! grep  --only-matching amulet <<< $I &> /dev/null; then
+    cat << EOF
+You have found an emerald **amulet**!
+
+To collect treasure, you must have a variable to hold your inventory.
+
+Create a variable and add your treasure to it like this:
+
+export I=amulet,\$I
+
+You can always check your wealth with this command:
+
+echo \$I
+
+EOF
+    mv ../.chapel ../chapel 2>/dev/null
+    mv ../.vault ../vault 2>/dev/null
+    mv ../.scrap ../scrap 2>/dev/null
+else
+    echo "This treasure has already been taken."
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Hmm, that didn't work.
+# Try moving into the armoury, maybe you
+# can come back to this treasure later!
+
+
+SLNR-170234:cellar johnleee$ cd armoury
+SLNR-170234:armoury johnleee$ ls
+chamber		potion		scroll		treasure
+SLNR-170234:armoury johnleee$ cat scroll
+
+# You can interact with items in the room (they end with a *)
+# by running them as a command (a shell script).
+#
+# For example, to collect treasure:
+#
+# ./treasure
+#
+# The . (dot) means *don't move*, and the name of the 
+# script makes the code run.  This is known as a 
+# relative path, and the . means the current room
+# (directory).
+#
+# You may have left treasure in the previous room.
+# Go back to a previous directory with two dots,
+# which means *take a step back*.
+#
+# EXAMPLE:
+#
+# cd ..
+
+SLNR-170234:armoury johnleee$ cd ..
+SLNR-170234:cellar johnleee$ ./treasure
+You have found an emerald **amulet**!
+
+To collect treasure, you must have a variable to hold your inventory.
+
+Create a variable and add your treasure to it like this:
+
+export I=amulet,$I
+
+You can always check your wealth with this command:
+
+echo $I
+
+SLNR-170234:cellar johnleee$ export I=amulet,$I
+SLNR-170234:cellar johnleee$ echo $I
+amulet,
+SLNR-170234:cellar johnleee$ ./potion
+-bash: ./potion: No such file or directory
+SLNR-170234:cellar johnleee$ ./potion
+-bash: ./potion: No such file or directory
+SLNR-170234:cellar johnleee$ cd armoury
+SLNR-170234:armoury johnleee$ ./potion
+You have found a potion bottle of swirling
+green liquid. Do you want to drink it?  y/n
+
+y
+The taste of a rustic green plant fills your mouth.  It
+warms and strengthens you.
+
+Create a variable for your health points (HP).  You have
+15HP:
+
+export HP=15
+
+You can check your health at any time:
+
+echo $HP
+
+SLNR-170234:armoury johnleee$ export HP=15
+SLNR-170234:armoury johnleee$ echo $HP
+15
+SLNR-170234:armoury johnleee$ cd chamber
+SLNR-170234:chamber johnleee$ ls
+scroll		spell		statue		treasure
+SLNR-170234:chamber johnleee$ cat scroll
+
+# You seem to have reached the end of this hall.
+#
+# Turn back and try another path.
+#
+# Remember, to back track one directory, you type:
+#
+# cd ..
+#
+# If you are drawing a map of your progress,
+# you can always get the name of your working
+# directory with this command:
+#
+# pwd
+
+SLNR-170234:chamber johnleee$ ./treasure
+
+You have found a stash of **coins**!  They are old and worn
+with age,  but they still gleam in the magickal light
+emanating from your eyes.
+
+Prefix this item to your inventory:
+
+export I=coins,$I
+
+Remember, you can check your inventory:
+
+echo $I
+
+SLNR-170234:chamber johnleee$ export I=coins,$I
+SLNR-170234:chamber johnleee$ echo $I
+coins,amulet,
+SLNR-170234:chamber johnleee$ ./spell
+Runes, the language of the ancient mystics that once ruled
+this land, are inscribed upon the western wall.
+
+Do you want to read them? y/n  y
+You recall the lessons of Caitlyn the Green, who taught you
+these ancient letters.
+
+The runes are instructions on how to summon a portal that
+will allow you to walk through an invisible door contained
+in the wall.
+
+In Bash, a symbolic link (symlink) is a *shortcut* to
+another file or directory.  Create one from this room to the
+adjacent one:
+
+ln -fs ../../../chapel/courtyard/aviary/hall portal
+
+SLNR-170234:chamber johnleee$ src/dungeon.rs
+-bash: src/dungeon.rs: No such file or directory
+SLNR-170234:chamber johnleee$ cat src/dungeon.rs
+cat: src/dungeon.rs: No such file or directory
+SLNR-170234:chamber johnleee$ ./statue
+A rugged statue stands in the corner of the room.
+
+Do you approach it? y/n  n
+You cautiously avoid the statue, recalling stories of living
+stone lying in wait, deep within haunted catacombs.
+
+SLNR-170234:chamber johnleee$ cd ../../..
+SLNR-170234:entrance johnleee$ ls -a
+.		.functions	cellar		scrap		vault
+..		.rift		chapel		scroll
+SLNR-170234:entrance johnleee$ cd vault
+SLNR-170234:vault johnleee$ ls
+glass		scroll		stronghold
+SLNR-170234:vault johnleee$ cd stronghold
+SLNR-170234:stronghold johnleee$ ls
+goblet	nursery	orb1	scroll
+SLNR-170234:stronghold johnleee$ cat scroll
+
+# There is a fine gold goblet at the center of a
+# runic triangle on the floor.
+# You try to take the goblet, but your hand
+# passes through it as if it were illusory.
+#
+# You notice a glowing orb, labeled orb1, in one
+# corner of the triangle. The other points of the
+# triangle are labeled orb2 and orb3, but the orbs
+# have long since been stolen by tomb raiders.
+#
+# Perhaps adding more orbs would free the goblet's
+# material form.
+#
+# You remember a spell your magick teacher,
+# Caitlyn the Green, taught you long ago:
+# a spell to copy and name objects...
+#
+
+SLNR-170234:stronghold johnleee$ cp orb1 orb2
+SLNR-170234:stronghold johnleee$ cp orb1 orb3
+SLNR-170234:stronghold johnleee$ ls
+goblet	nursery	orb1	orb2	orb3	scroll
+SLNR-170234:stronghold johnleee$ ./goblet
+You have freed the goblet's material form.  Add 'goblet' to
+your inventory.
+
+SLNR-170234:stronghold johnleee$ cd nursery
+SLNR-170234:nursery johnleee$ ls
+lab	scroll	spell
+SLNR-170234:nursery johnleee$ cat scroll
+
+# Once a thriving nursery filled with vibrant plants,
+# this is now the Nursery of the Still Dead (it says so,
+# in writing on the wall).
+
+SLNR-170234:nursery johnleee$ cat spell
+#!/usr/bin/env bash
+#
+# If you are reading this, you have wandered out of bounds
+# and are reading the code that drives the game.
+#
+#                    Congratulations!
+#
+# Learning Linux is all about curiosity, so read this code and see
+# if you can figure out what it does.
+#
+# When you're ready to continue playing the game, though, stick to
+# the scrolls. If you're stuck, go to Gitlab and create an issue.
+# We're happy to provide hints.
+#
+if [[ -e potion ]]; then
+    cat << EOF
+You have summoned a potion from afar.  You drink it quickly
+and feel a surge of strength.
+
+Add 5 HP to your score.
+
+let HP=HP+5
+
+EOF
+else
+    cat << EOF
+A page from a druid's tome of incantations lies on the
+ground.  It reveals to you how to summon a healing potion:
+
+# To find a file on your system, use the find command.  For
+# example, to search this room:
+
+find . -name "potion"
+
+# Once you've found a potion, copy it to this directory and
+# run this spell script again.
+
+There are no potions in this room.  But try searching
+starting at the entrance.
+
+Hint: use pwd to determine how many rooms (folders) are
+between you and the entrance.
+
+EOF
+
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Hmm, that didn't work.
+# Remember, when files end in a *
+# it means they are applications.
+# Try this:
+#
+# ./spell
+
+SLNR-170234:nursery johnleee$ cd lab
+SLNR-170234:lab johnleee$ ls
+ghost	scroll
+SLNR-170234:lab johnleee$ cat scroll
+
+# An abandoned laboratory of a wizard long dead.
+#
+# A lone magickal torch ignites as you enter, shedding
+# light on the workshop, and casts haunting shadows
+# on every surface.
+#
+# The flames lick the walls, burning off the moss that had
+# gathered there. The burning moss sizzles in the silence
+# of the catacombs, like angelic wailing or singing.
+
+SLNR-170234:lab johnleee$ ./ghost
+The room shakes, a gust of wind blasts you from nowhere.
+You sense that a presence has entered the room.  The pain
+you suddenly feel assures you that you are under attack by a
+ghostly entity!
+
+If you have a sword, you can attack.  Otherwise, you should
+run.
+
+Do you want to attack? y/n  y
+Enter a number:  0
+The monster rolled  63
+You rolled  84
+A hit! A palpable hit!  You have slain the spirit of the
+evil wizard.
+
+SLNR-170234:lab johnleee$ ls
+ghost		platinum	scroll		treasure
+SLNR-170234:lab johnleee$ cd ../../../..
+SLNR-170234:entrance johnleee$ ln -s ./.rift portal
+SLNR-170234:entrance johnleee$ cd portal
+SLNR-170234:portal johnleee$ ls
+arena	box	scroll	spire
+SLNR-170234:portal johnleee$ cat scroll
+
+# You find yourself on a world not of this reality.
+#
+# The sky is red, mountains hang in the sky and
+# trees are flames that form from smoke
+# decending from the heavens.
+#
+# You have entered the rift.
+#
+
+SLNR-170234:portal johnleee$ cd arena
+SLNR-170234:arena johnleee$ ls
+pit	scroll
+SLNR-170234:arena johnleee$ cd pit
+SLNR-170234:pit johnleee$ ls
+drum		drummer		nyarlathotep	scroll		wizard-light
+SLNR-170234:pit johnleee$ cat scroll
+
+# You have entered the chamber of
+# Nyarlathotep, the crawling chaos.
+#
+# Nyarlathotep, older than the old
+# gods themselves, has been waiting for you.
+
+SLNR-170234:pit johnleee$ cd ../../../../../..
+SLNR-170234:Users johnleee$ pwd
+/Users
+SLNR-170234:Users johnleee$ ls
+dsaccount	johnleee	Shared
+SLNR-170234:Users johnleee$ cd chapel
+-bash: cd: chapel: No such file or directory
+SLNR-170234:Users johnleee$ 
+SLNR-170234:Users johnleee$ ls
+dsaccount	johnleee	Shared
+SLNR-170234:Users johnleee$ cd ~/bashcrawl/entrance
+SLNR-170234:entrance johnleee$ pwd
+/Users/johnleee/bashcrawl/entrance
+SLNR-170234:entrance johnleee$ ls
+cellar	chapel	portal	scrap	scroll	vault
+SLNR-170234:entrance johnleee$ cd chapel
+SLNR-170234:chapel johnleee$ ls
+altar		courtyard	graveyard	scroll
+SLNR-170234:chapel johnleee$ cat scroll
+
+# There is writing upon the wall.
+#
+# It is written in the common language of the land.
+#
+# It appears to be inscribed in blood:
+#
+#      T U R N    B A C K
+#
+# Speaking of turning back:
+#
+# You can re-use previous commands by pressing the
+# UP and DOWN arrow to scroll through your history.
+# Try it!
+
+SLNR-170234:chapel johnleee$ cd courtyard
+SLNR-170234:courtyard johnleee$ ls
+aviary		fountain	rags		scroll
+SLNR-170234:courtyard johnleee$ cd aviary
+SLNR-170234:aviary johnleee$ ls
+crystal	hall	penguin	scroll
+SLNR-170234:aviary johnleee$ cargo test --bin game cp1
+error: could not find `Cargo.toml` in `/Users/johnleee/bashcrawl/entrance/chapel/courtyard/aviary` or any parent directory
+SLNR-170234:aviary johnleee$ 
