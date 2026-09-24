@@ -70,10 +70,18 @@ pub fn linear(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
 /// Halve the range at each step: ask whether the number is above the midpoint,
 /// discard the half that cannot contain it, and repeat.
 pub fn binary(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
-    // YOUR SOLUTION GOES HERE.
-    todo!("binary")
+    let mut lo = min;
+    let mut hi = max;
+    while hi - lo > 1 {
+        let mid = (lo + hi - 1) / 2;
+        if keeper.ask_if_greater(mid) {
+            lo = mid + 1;
+        } else {
+            hi = mid + 1;
+        }
+    }
+    lo
 }
-
 /// How far `jump` moves on each step forward.
 pub const STRIDE: u32 = 1;
 
