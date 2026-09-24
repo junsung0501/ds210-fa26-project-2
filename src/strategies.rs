@@ -110,8 +110,20 @@ pub fn jump(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
 /// asking outright whether the midpoint is the number. Finishes in a single
 /// question when it guesses right on the first try.
 pub fn lucky(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
-    // YOUR SOLUTION GOES HERE.
-    todo!("lucky")
+    let mut lo = min;
+    let mut hi = max;
+    while hi - lo > 1 {
+        let mid = (lo + hi - 1) / 2;
+        if keeper.ask_if_equal(mid) {
+            return mid;
+        }
+        if keeper.ask_if_greater(mid) {
+            lo = mid + 1;
+        } else {
+            hi = mid + 1;
+        }
+    }
+    lo
 }
 
 // ---------------------------------------------------------------------------
