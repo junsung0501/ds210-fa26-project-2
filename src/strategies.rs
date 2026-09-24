@@ -83,7 +83,7 @@ pub fn binary(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
     lo
 }
 /// How far `jump` moves on each step forward.
-pub const STRIDE: u32 = 1;
+pub const STRIDE: u32 = 10;
 
 /// Step forward `STRIDE` at a time until the number is behind you, then walk back
 /// through the numbers you skipped.
@@ -91,9 +91,20 @@ pub const STRIDE: u32 = 1;
 /// Like `linear`, this should always find the number inside the loop, but the
 /// compiler can't know that, so you still have to say what happens if the loop ends
 pub fn jump(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
-    // YOUR SOLUTION GOES HERE.
-    todo!("jump")
+    let mut pos = min;
+    while pos < max && keeper.ask_if_greater(pos) {
+        pos += STRIDE;
+    }
+    let lo = pos.saturating_sub(STRIDE).max(min);
+    let hi = pos.min(max - 1);
+    for guess in lo..=hi {
+        if keeper.ask_if_equal(guess) {
+            return guess;
+        }
+    }
+    unreachable!("an honest keeper always says yes before the loop runs out")
 }
+
 
 /// Halve the range like `binary`, but spend one extra question at each step
 /// asking outright whether the midpoint is the number. Finishes in a single
