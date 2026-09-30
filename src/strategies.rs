@@ -73,7 +73,7 @@ pub fn binary(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
     let mut lo = min;
     let mut hi = max;
     while hi - lo > 1 {
-        let mid = (lo + hi - 1) / 2;
+        let mid = lo + (hi - 1 - lo) / 2;
         if keeper.ask_if_greater(mid) {
             lo = mid + 1;
         } else {
@@ -98,12 +98,7 @@ pub fn jump(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
     }
     let lo = pos.saturating_sub(STRIDE).max(min);
     let hi = pos.min(max - 1);
-    for guess in lo..=hi {
-        if keeper.ask_if_equal(guess) {
-            return guess;
-        }
-    }
-    unreachable!("an honest keeper always says yes before the loop runs out")
+    linear(keeper, lo, hi + 1)
 }
 
 /// Halve the range like `binary`, but spend one extra question at each step
@@ -113,7 +108,7 @@ pub fn lucky(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
     let mut lo = min;
     let mut hi = max;
     while hi - lo > 1 {
-        let mid = (lo + hi - 1) / 2;
+        let mid = lo + (hi - 1 - lo) / 2;
         if keeper.ask_if_equal(mid) {
             return mid;
         }
@@ -149,7 +144,7 @@ pub fn clever(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
     let mut lo = min;
     let mut hi = max;
     while possible_count(keeper, lo, hi - 1) > 1 {
-        let mid = (lo + hi - 1) / 2;
+        let mid = lo + (hi - 1 - lo) / 2;
         if keeper.ask_if_greater(mid) {
             lo = mid + 1;
         } else {
