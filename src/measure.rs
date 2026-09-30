@@ -22,8 +22,7 @@ impl Results {
     /// There is no single right answer (though there are wrong ones), so make a choice
     /// you can defend.
     pub fn is_better_than(&self, other: &Results) -> bool {
-        // YOUR SOLUTION GOES HERE.
-        todo!("is_better_than")
+        self.mean < other.mean
     }
 }
 
@@ -31,6 +30,37 @@ impl Results {
 /// questions they took. Every game is dealt from one `Dealer`, so no secret
 /// repeats until the whole range has been used.
 pub fn measure(approach: Approach, min: u32, max: u32, rounds: u32) -> Results {
-    // YOUR SOLUTION GOES HERE.
-    todo!("measure")
+    if rounds == 0 {
+        return Results { best: 0, mean: 0.0, worst: 0, std_dev: 0.0 };
+    }
+
+    let mut dealer = Dealer::new(min, max);
+    let mut best = u32::MAX;
+    let mut worst = 0;
+    let mut sum = 0.0;
+    let mut sum_sq = 0.0;
+
+    for _ in 0..rounds {
+        let mut keeper = dealer.deal();
+        match approach {
+            Approach::Bad => bad(&mut keeper, min, max),
+            Approach::Random => random(&mut keeper, min, max),
+            Approach::Linear => linear(&mut keeper, min, max),
+            Approach::Binary => binary(&mut keeper, min, max),
+            Approach::Jump => jump(&mut keeper, min, max),
+            Approach::Lucky => lucky(&mut keeper, min, max),
+            Approach::Clever => clever(&mut keeper, min, max),
+        };
+        let count = keeper.questions_asked();
+        best = best.min(count);
+        worst = worst.max(count);
+        sum += count as f64;
+        sum_sq += (count as f64) * (count as f64);
+    }
+
+    let n = rounds as f64;
+    let mean = sum / n;
+    let variance = (sum_sq / n) - (mean * mean);
+
+    Results { best, mean, worst, std_dev: variance.max(0.0).sqrt() }
 }

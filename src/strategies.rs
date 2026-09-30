@@ -82,6 +82,7 @@ pub fn binary(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
     }
     lo
 }
+
 /// How far `jump` moves on each step forward.
 pub const STRIDE: u32 = 10;
 
@@ -104,7 +105,6 @@ pub fn jump(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
     }
     unreachable!("an honest keeper always says yes before the loop runs out")
 }
-
 
 /// Halve the range like `binary`, but spend one extra question at each step
 /// asking outright whether the midpoint is the number. Finishes in a single
@@ -133,21 +133,29 @@ pub fn lucky(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
 /// How many numbers between `lo` and `hi`, both included, could still be the
 /// secret?
 pub fn possible_count(keeper: &SecretKeeper, lo: u32, hi: u32) -> u32 {
-    // YOUR SOLUTION GOES HERE.
-    todo!("possible_count")
+    (lo..=hi).filter(|&n| keeper.is_still_possible(n)).count() as u32
 }
 
 /// The first number in `lo..=hi` that could still be the secret. `None` when
 /// every number in the range has already been used.
 pub fn first_possible(keeper: &SecretKeeper, lo: u32, hi: u32) -> Option<u32> {
-    // YOUR SOLUTION GOES HERE.
-    todo!("first_possible")
+    (lo..=hi).find(|&n| keeper.is_still_possible(n))
 }
 
 /// Halve the range like `binary`, but stop as soon as only one number in it is
 /// still possible. A dealer never repeats a secret until it has used every
 /// number, so the more games you play, the more of the range is ruled out.
 pub fn clever(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
-    // YOUR SOLUTION GOES HERE.
-    todo!("clever")
+    let mut lo = min;
+    let mut hi = max;
+    while possible_count(keeper, lo, hi - 1) > 1 {
+        let mid = (lo + hi - 1) / 2;
+        if keeper.ask_if_greater(mid) {
+            lo = mid + 1;
+        } else {
+            hi = mid + 1;
+        }
+    }
+    first_possible(keeper, lo, hi - 1)
+        .expect("a possible number always remains while the secret is honest")
 }
