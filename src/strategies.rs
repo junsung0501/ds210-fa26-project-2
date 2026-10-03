@@ -84,7 +84,7 @@ pub fn binary(keeper: &mut SecretKeeper, min: u32, max: u32) -> u32 {
 }
 
 /// How far `jump` moves on each step forward.
-pub const STRIDE: u32 = 10;
+pub const STRIDE: u32 = 30;
 
 /// Step forward `STRIDE` at a time until the number is behind you, then walk back
 /// through the numbers you skipped.
